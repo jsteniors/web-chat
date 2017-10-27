@@ -1,0 +1,137 @@
+$margin: 0;
+$flip: 30deg;
+$chatWidth: 390px;
+$chatHeaderHeight: 120px;
+$chatContentHeight: 320px;
+$chatMenuIcon: false;
+
+@import "mixin/gradiente.scss";
+@import "mixin/transform.scss ";
+
+
+/*body{
+  margin: $margin;
+  background: black!important;
+}*/
+//container do chat
+.chat-container{
+  width: $chatWidth;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
+//header do chat
+.chat-header{
+  @include gradienteDefault();
+  height: $chatHeaderHeight;
+  width: 100%;
+}
+
+//container dos msg do chat
+.chat-content{
+  width: 100%;
+  height: $chatContentHeight;
+  overflow: hidden;
+  position: relative;
+}
+
+//tamanho fixo relativo para os componentes do header
+.chat-head-container, .chat-head-container .row{
+  height: 100%;
+}
+
+.chat-header-clo1{
+  background: url(img/sprite-martins.png);
+  background-size: 550px;
+  background-position: -415px 10px;
+  background-repeat: no-repeat;
+  @extend .chat-head-container;
+ }
+
+.chat-header-clo2{
+  @extend .chat-head-container;
+}
+
+$marginDesc: 10px;
+
+.chat-txt-desc h3{
+  margin-top: $marginDesc;
+  margin-bottom: 0;
+}
+
+.chat-txt-desc h4{
+  margin-top: 10px;
+  margin-bottom: $marginDesc;
+}
+
+
+//background flip
+.bg-style{
+  margin-left: -50%;
+  margin-top: -50%;
+  width: 1000px;
+  height: 1000px;
+  background: url("img/martins-logo-bg.jpg") repeat;
+  @include rotate($flip);
+  z-index: -1;
+  position: absolute;
+}
+
+//footer do chat
+.chat-footer{
+  width: 100%;
+  //height: 60px;
+  padding: 10px 30px;
+  @include gradienteDefault();
+}
+
+.chat-menu-icon i{
+  font-size: 2.5em;
+  color: #666666;
+  @if $chatMenuIcon {
+    display: block;
+  }@else {
+    display: none;
+  }
+}
+
+.chat-menu-icon i:hover{
+  color: #51ADED;
+  cursor: pointer;
+}
+
+$fontInput: 1.5em;
+.chat-input-message{
+  @if $chatMenuIcon==false{
+  width: 100%!important;
+}
+  .input-line{
+    input, textarea{
+      height: auto!important;
+      font-size: $fontInput;
+      resize: none;
+    }
+    span{
+      position: absolute;
+      top:15%;
+      right: 5%;
+      font-size: $fontInput;
+      &:hover{
+        color: #51ADED;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/*
+[draggable]{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}*/

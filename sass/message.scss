@@ -1,0 +1,161 @@
+.message-chat-container{
+  max-width: 85%;
+  display: block;
+  /*word-wrap: break-word;*/
+  position: relative;
+  &:first-child{
+    margin-top: 10px;
+  }
+}
+.chat-messages{
+  //min-height: 90%;
+  height: 100%;
+  overflow-y: auto;
+
+}
+.chat-message-box{
+  display: inline-block;
+  width: 100%;
+}
+.chat-message-left{
+  padding: 1% 10% 0  5%;
+}
+.chat-message-right{
+  float: right;
+  padding: 1% 5% 0  10%;
+}
+.msg-icon{
+  width: 12px;
+  height: 19px;
+  z-index: -1;
+  background-size: contain!important;
+  position: absolute;
+}
+.msg-icon-left{
+  @extend .msg-icon;
+  background: url('img/chat-msg-left-icon.png') no-repeat center;
+  top: 0;
+  left: -11px;
+}
+
+.msg-icon-right{
+  @extend .msg-icon;
+  background: url('img/chat-msg-right-icon.png') no-repeat center;
+  top: 0;
+  right: -12px;
+}
+
+.msg-continued{
+  .message-content {
+    border-radius: 7px!important;
+  }
+  .msg-icon-right{
+    display: none;
+  }
+  .msg-icon-left{
+    display: none;
+  }
+}
+.msg-content{
+  position: relative;
+  padding: 3% 5%;
+  border-radius: 7px;
+}
+
+.chat-message-left {
+  .chat-message-time {
+    float: left;
+    margin-left: 5px;
+  }
+  .message-content {
+    background-color: #FFFFFF;
+    @extend .msg-content;
+  }
+}
+
+.chat-message-right{
+  .chat-message-time {
+    float: right;
+    margin-right: 5px;
+  }
+  .message-content{
+    background-color: #DCF8C6;
+    @extend .msg-content;
+  }
+}
+
+
+.chat-message-left .message-content{
+  border-top-left-radius: 0;
+}
+
+.chat-message-right .message-content{
+  border-top-right-radius: 0;
+}
+
+.message-text{
+  margin: 0 10px;
+}
+
+.chat-message-time{
+  color: #a9af9d;
+}
+.chat-message-right.msg-type-linked{
+  padding-right: 0;
+  margin-right: 20px;
+  .message-content{
+    padding-right: 0;
+  }
+}
+.chat-message-left.msg-type-linked{
+  padding-left: 0;
+  margin-left: 20px;
+  .message-content{
+    padding-left: 0;
+  }
+}
+.msg-type-linked{
+  width: 100%;
+
+  .message-content{
+    background-color: transparent!important;
+    width: 100%;
+    .chat-message-right .message-content{
+      float: right;
+    }
+    .chat-message-left .message-content{
+      float: left;
+    }
+    a{
+      width: 100%;
+      background-color: #51ADED;
+      &:hover{
+        background-color: #1795E8;
+      }
+    }
+  }
+}
+
+.msg-form{
+  *{
+    margin: 5px;
+  }
+
+
+}
+
+.msg-errors{
+  display: none;
+  background: white;
+  text-align: center;
+  height: 10%;
+  color: red;
+  //margin-top: 50px;
+  .msg-error{
+    display: flex;
+    min-height: 70%;
+    .msg-error-desc{
+      margin: auto;
+    }
+  }
+}
