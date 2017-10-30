@@ -11,7 +11,6 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
             $scope.messages.push(message);
             if(message.whos==1)
                 $scope.messageText = new String();
-            scrollEnd();
         }
     };
     //'sobrescrevendo' metedo de enviar mensagem
@@ -38,6 +37,7 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
             if($scope.messageText.trim()!='') {
                 var esta = new Message('message', $scope.messageText, 1, new Date());
                 $scope.sendContinuetedMessage(esta);
+                scrollEnd();
                 botAPI.sendMessage().then(function (response) {
                     if ($scope.messageText.indexOf('\n') > -1)
                         jchat('#msg-txt').attr('rows', '2');
@@ -50,6 +50,7 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
                             $scope.sendContinuetedMessage(dado);
                         });
                     }
+                    scrollEnd();
                 }, function (error) {
                     errorAlert.messageError("Houve um problema de conexao!");
                 });

@@ -25,5 +25,15 @@ Para configurar a url da requisição basta configurar o modulo: <br/>
 
 ```
 
+Para configrar o metodo da requisição basta configurar o modulo: <br/>
+
+```
+    angular.module('chatApp').config(function(botAPIProvider){
+        botAPIProvider.setMethod('METHOD');
+    });
+
+```
+
+
 
 
