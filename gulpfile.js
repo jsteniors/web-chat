@@ -15,7 +15,7 @@ gulp.task('sass', function () {
            gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css',
                'node_modules/open-iconic/font/css/open-iconic.min.css',
                'node_modules/font-awesome/css/font-awesome.min.css']),
-           gulp.src('sass/**/*.scss')
+           gulp.src('src/sass/**/*.scss')
                .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         ])
        .pipe(concat('style.css'))
@@ -24,7 +24,7 @@ gulp.task('sass', function () {
 
 
 gulp.task('html', function () {
-    return gulp.src(['index.html', 'chat.html'])
+    return gulp.src(['src/**/*.html'])
         .pipe(gulp.dest('demo'));
 });
 
@@ -33,7 +33,7 @@ gulp.task('js', function () {
             gulp.src(['node_modules/jquery/dist/jquery.min.js',
                 'node_modules/angular/angular.min.js',
             ]),
-            gulp.src('js/**/*.js')
+            gulp.src('src/js/**/*.js')
         ])
         .pipe(concat('script.js'))
         .pipe(gulp.dest('lib'));
@@ -48,8 +48,8 @@ gulp.task('img', function () {
 });
 
 
-gulp.watch(['index.html', 'chat.html'], ['html']);
-gulp.watch('sass/!**!/!*.scss', ['sass']);
-gulp.watch('js/!**!/!*.js', ['js']);
+gulp.watch(['src/**/*.html'], ['html']);
+gulp.watch('src/sass/**/*.scss', ['sass']);
+gulp.watch('src/js/**/*.js', ['js']);
 
 gulp.task('default', ['js', 'html', 'sass', 'img']);
