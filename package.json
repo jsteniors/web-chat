@@ -1,5 +1,5 @@
 {
-  "name": "web-chat",
+  "name": "js-web-mchat",
   "version": "1.0.0",
   "description": "Chat para cliente martins",
   "readmeFilename": "README.md",
@@ -7,8 +7,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Stenio",
+  "author": {
+    "name": "Stenio",
+    "email": "stenio.contato@outlook.com"
+  },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsteniors/web-chat"
+  },
   "dependencies": {
     "angular": "^1.6.6",
     "bootstrap": "^3.3.7",

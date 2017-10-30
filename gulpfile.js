@@ -34,6 +34,7 @@ gulp.task('js', function () {
                 'node_modules/angular/angular.min.js',
             ]),
             gulp.src('src/js/**/*.js')
+                .pipe(uglify())
         ])
         .pipe(concat('script.js'))
         .pipe(gulp.dest('lib'));
