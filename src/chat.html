@@ -3,10 +3,29 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <script src="script.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            $(document).ready(function () {
+               console.log('rea');
+                $.ajax({
+                    url: "http://sac-martinsb2b.ascbrazil.com.br/Chat/login/resp-login",
+                    type: 'POST',
+                    crossDomain: true,
+//                    Origin: 'http://sac-martinsb2b.ascbrazil.com.br',
+                    'Accept' : 'application/json, text/javascript, */*; q=0.01',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+                    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+                    data: 'message=aasdsadasd',
+                    success: function(data) {
+                        console.log('ajax', data);
+                    }
+                });
+            });
+        </script>
         <link rel="stylesheet" href="style.css"/>
     </head>
-    <body ng-app="chatApp">
+    <body>
 
     </body>
 </html>

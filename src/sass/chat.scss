@@ -21,7 +21,7 @@ $srcUrl: '../demo/img';
 //header do chat
 .chat-header{
   @include gradienteDefault();
-  height: $chatHeaderHeight;
+  min-height: $chatHeaderHeight;
   width: 100%;
 }
 
@@ -35,13 +35,15 @@ $srcUrl: '../demo/img';
 
 //tamanho fixo relativo para os componentes do header
 .chat-head-container, .chat-head-container .row{
-  height: 100%;
+  min-height: 120px;
 }
 .chat-header-clo1{
   $headerCol1BgUrl: $srcUrl+'/sprite-martins.png';
   background: url($headerCol1BgUrl);
   background-size: 550px;
   background-position: -415px 10px;
+  width: 120px;
+  margin: auto;
   background-repeat: no-repeat;
   @extend .chat-head-container;
  }
@@ -55,11 +57,13 @@ $marginDesc: 10px;
 .chat-txt-desc h3{
   margin-top: $marginDesc;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .chat-txt-desc h4{
   margin-top: 10px;
   margin-bottom: $marginDesc;
+  text-align: center;
 }
 
 

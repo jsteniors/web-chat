@@ -1,0 +1,122 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.3
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Users\\Usuário\\WebstormProjects\\web-chat',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Usuário\AppData\Roaming\npm-cache\js-web-mchat\1.0.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Usuário\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle js-web-mchat@1.0.0~prepublish: js-web-mchat@1.0.0
+11 silly lifecycle js-web-mchat@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\Usuário\\AppData\\Roaming\\npm-cache\\js-web-mchat\\1.0.0\\package.tgz',
+12 verbose tar pack   'C:\\Users\\Usuário\\WebstormProjects\\web-chat' ]
+13 verbose tarball C:\Users\Usuário\AppData\Roaming\npm-cache\js-web-mchat\1.0.0\package.tgz
+14 verbose folder C:\Users\Usuário\WebstormProjects\web-chat
+15 verbose addLocalTarball adding from inside cache C:\Users\Usuário\AppData\Roaming\npm-cache\js-web-mchat\1.0.0\package.tgz
+16 verbose correctMkdir C:\Users\Usuário\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd js-web-mchat@1.0.0
+18 verbose afterAdd C:\Users\Usuário\AppData\Roaming\npm-cache\js-web-mchat\1.0.0\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\Usuário\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\Usuário\AppData\Roaming\npm-cache\js-web-mchat\1.0.0\package\package.json written
+21 silly publish { name: 'js-web-mchat',
+21 silly publish   version: '1.0.0',
+21 silly publish   description: 'Chat para cliente martins',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   main: 'script.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   author: { name: 'Stenio', email: 'stenio.contato@outlook.com' },
+21 silly publish   license: 'ISC',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/jsteniors/web-chat.git' },
+21 silly publish   dependencies:
+21 silly publish    { angular: '^1.6.6',
+21 silly publish      bootstrap: '^3.3.7',
+21 silly publish      'font-awesome': '^4.7.0',
+21 silly publish      jquery: '^3.2.1',
+21 silly publish      'open-iconic': '^1.1.1' },
+21 silly publish   devDependencies:
+21 silly publish    { 'event-stream': '^3.3.4',
+21 silly publish      gulp: '^3.9.1',
+21 silly publish      'gulp-clean': '^0.3.2',
+21 silly publish      'gulp-clean-css': '^3.9.0',
+21 silly publish      'gulp-concat': '^2.6.1',
+21 silly publish      'gulp-sass': '^3.1.0',
+21 silly publish      'gulp-uglify': '^3.0.0' },
+21 silly publish   readme: 'Web Chat\r\n====\r\n\r\nPara executar um teste do web-chat: <br/>\r\n - Ter o jquery e angular >=1.6.6 <br/>\r\n - Adcionar o arquivo [lib/script.js](https://github.com/jsteniors/web-chat/blob/master/lib/script.js) ao seu script <br/>\r\n - Referenciar arquivo [lib/style.css](https://github.com/jsteniors/web-chat/blob/master/lib/style.css) <br/>\r\n - Em uma tag qualquer com corpo referenciar o modulo angular \'chatApp\' e colocar a tag <chat>: <br/>\r\n ```\r\n    <body>\r\n        <!-- Qualquer tag com corpo -->\r\n        <ANY ng-app=\'chatApp\'>\r\n            <!-- Seu chat sera inserido aqui -->\r\n            <chat></chat>\r\n        </ANY\r\n    </body>\r\n ```\r\n <br/>\r\nPara configurar a url da requisição basta configurar o modulo: <br/>\r\n\r\n```\r\n    angular.module(\'chatApp\').config(function(botAPIProvider){\r\n        botAPIProvider.setBaseUrl(\'your-url-here\');\r\n    });\r\n\r\n```\r\n\r\nPara configrar o metodo da requisição basta configurar o modulo: <br/>\r\n\r\n```\r\n    angular.module(\'chatApp\').config(function(botAPIProvider){\r\n        botAPIProvider.setMethod(\'METHOD\');\r\n    });\r\n\r\n```\r\n\r\n\r\n\r\n\r\n',
+21 silly publish   gitHead: 'def4e17f54b9fd11d2c1e72b63ec20c47201b0d7',
+21 silly publish   bugs: { url: 'https://github.com/jsteniors/web-chat/issues' },
+21 silly publish   homepage: 'https://github.com/jsteniors/web-chat#readme',
+21 silly publish   _id: 'js-web-mchat@1.0.0',
+21 silly publish   _shasum: 'be2ab268eab772818321b87050f4a23bbdb666d3',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name js-web-mchat
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'js-web-mchat',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'js-web-mchat',
+26 silly mapToRegistry   name: 'js-web-mchat',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/js-web-mchat
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading C:\Users\Usuário\AppData\Roaming\npm-cache\js-web-mchat\1.0.0\package.tgz
+30 verbose request uri https://registry.npmjs.org/js-web-mchat
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 10:33:38
+33 verbose request using bearer token for auth
+34 verbose request id 3f45801e09025374
+35 http request PUT https://registry.npmjs.org/js-web-mchat
+36 http 403 https://registry.npmjs.org/js-web-mchat
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '91',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Mon, 30 Oct 2017 12:33:40 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-gru17122-GRU',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1509366813.625756,VS0,VE7829',
+37 verbose headers   vary: 'Accept-Encoding, Accept' }
+38 verbose request invalidating C:\Users\Usuário\AppData\Roaming\npm-cache\registry.npmjs.org\js-web-mchat on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: You cannot publish over the previously published version 1.0.0. : js-web-mchat
+40 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:290:14)
+40 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+40 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid js-web-mchat
+43 verbose cwd C:\Users\Usuário\WebstormProjects\web-chat
+44 error Windows_NT 10.0.14393
+45 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error node v6.11.3
+47 error npm  v3.10.10
+48 error code E403
+49 error You cannot publish over the previously published version 1.0.0. : js-web-mchat
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
