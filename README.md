@@ -12,7 +12,7 @@ Para executar um teste do web-chat: <br/>
         <ANY ng-app='chatApp'>
             <!-- Seu chat sera inserido aqui -->
             <chat></chat>
-        </ANY
+        </ANY>
     </body>
  ```
  <br/>
