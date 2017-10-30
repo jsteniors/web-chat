@@ -4,15 +4,12 @@ $chatWidth: 390px;
 $chatHeaderHeight: 120px;
 $chatContentHeight: 320px;
 $chatMenuIcon: false;
+$srcUrl: '../demo/img';
 
 @import "mixin/gradiente.scss";
 @import "mixin/transform.scss ";
 
 
-/*body{
-  margin: $margin;
-  background: black!important;
-}*/
 //container do chat
 .chat-container{
   width: $chatWidth;
@@ -40,9 +37,9 @@ $chatMenuIcon: false;
 .chat-head-container, .chat-head-container .row{
   height: 100%;
 }
-
 .chat-header-clo1{
-  background: url(img/sprite-martins.png);
+  $headerCol1BgUrl: $srcUrl+'/sprite-martins.png';
+  background: url($headerCol1BgUrl);
   background-size: 550px;
   background-position: -415px 10px;
   background-repeat: no-repeat;
@@ -72,7 +69,8 @@ $marginDesc: 10px;
   margin-top: -50%;
   width: 1000px;
   height: 1000px;
-  background: url("img/martins-logo-bg.jpg") repeat;
+  $backFlipBgUrl: $srcUrl+'/martins-logo-bg.jpg';
+  background: url($backFlipBgUrl) repeat;
   @include rotate($flip);
   z-index: -1;
   position: absolute;
@@ -81,7 +79,6 @@ $marginDesc: 10px;
 //footer do chat
 .chat-footer{
   width: 100%;
-  //height: 60px;
   padding: 10px 30px;
   @include gradienteDefault();
 }
@@ -124,14 +121,3 @@ $fontInput: 1.5em;
     }
   }
 }
-
-/*
-[draggable]{
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-
-  -khtml-user-drag: element;
-  -webkit-user-drag: element;
-}*/

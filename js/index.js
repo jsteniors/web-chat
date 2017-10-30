@@ -1,4 +1,5 @@
 jchat = jQuery.noConflict();
+/*
 jchat(document).ready(function () {
     jchat('body').append(chat);
     var content = jchat('.chat-container');
@@ -24,4 +25,4 @@ jchat(document).ready(function () {
         clicado = false;
     });
 
-});
+});*/

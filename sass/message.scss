@@ -1,14 +1,14 @@
+$srcUrl: '../demo/img';
+
 .message-chat-container{
   max-width: 85%;
   display: block;
-  /*word-wrap: break-word;*/
   position: relative;
   &:first-child{
     margin-top: 10px;
   }
 }
 .chat-messages{
-  //min-height: 90%;
   height: 100%;
   overflow-y: auto;
 
@@ -33,14 +33,16 @@
 }
 .msg-icon-left{
   @extend .msg-icon;
-  background: url('img/chat-msg-left-icon.png') no-repeat center;
+  $msgIconLeftUrl: $srcUrl+'/chat-msg-left-icon.png';
+  background: url($msgIconLeftUrl) no-repeat center;
   top: 0;
   left: -11px;
 }
 
 .msg-icon-right{
   @extend .msg-icon;
-  background: url('img/chat-msg-right-icon.png') no-repeat center;
+  $msgIconRighttUrl: $srcUrl+'/chat-msg-right-icon.png';
+  background: url($msgIconRighttUrl) no-repeat center;
   top: 0;
   right: -12px;
 }
@@ -140,8 +142,6 @@
   *{
     margin: 5px;
   }
-
-
 }
 
 .msg-errors{
@@ -150,7 +150,6 @@
   text-align: center;
   height: 10%;
   color: red;
-  //margin-top: 50px;
   .msg-error{
     display: flex;
     min-height: 70%;

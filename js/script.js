@@ -1,5 +1,10 @@
 angular.module('chatApp', []);
 
+angular.module('chatApp').component('chat', {
+    template: chat,
+    controller: 'chatCtrl'
+});
+
 var Message = function (type, content, whos, time) {
     this.type = type;
     this.content = content;
