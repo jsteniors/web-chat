@@ -89,4 +89,11 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
         });
     };
     doInit();
+    $scope.verItens = function () {
+        var itens = JSON.parse(sessionStorage.getItem('pages'));
+        if(itens){
+            console.log('itens', itens);
+        }else console.log('itens vazios');
+    }
+
 });
