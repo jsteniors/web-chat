@@ -47,7 +47,7 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
                         dados.forEach(function (dado) {
                             dado.whos = 0;
                             dado.time = new Date();
-                            dado.content = d.message;
+                            // dado.content = d.message;
                             $scope.sendContinuetedMessage(dado);
                         });
                     }
@@ -73,26 +73,13 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
 
     //iniciar a conexao com o robot
     var doInit = function () {
-
-        jchat.ajax({
-            url: "http://sac-martinsb2b.ascbrazil.com.br/Chat/login/resp-login",
-            type: 'POST',
-            Origin: 'http://sac-martinsb2b.ascbrazil.com.br',
-            Accept : 'application/json, text/javascript, */*; q=0.01',
-            contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-            data: 'message=aasdsadasd',
-            success: function(data) {
-                console.log('ajax', data);
-            }
-        });
-
-        botAPI.sendMessage().then(function (response) {
+        botAPI.sendMessage('{teste: 12}').then(function (response) {
             var dados = verify(response);
             if(dados){
                 dados.forEach(function (d) {
                    d.whos = 0;
                    d.time = new Date();
-                   d.content = d.message;
+                   // d.content = d.message;
                    $scope.sendContinuetedMessage(d);
                 });
                 scrollEnd();
@@ -103,4 +90,3 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
     };
     doInit();
 });
-

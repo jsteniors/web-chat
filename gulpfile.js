@@ -29,13 +29,11 @@ gulp.task('html', function () {
 });
 
 gulp.task('js', function () {
-    return es.merge([
-            gulp.src(['node_modules/jquery/dist/jquery.min.js',
+    return gulp.src([
                 'node_modules/angular/angular.min.js',
-            ]),
-            gulp.src('src/js/**/*.js')
-                // .pipe(uglify())
-        ])
+                'node_modules/jquery/dist/jquery.min.js',
+                'src/js/**/*.js'
+            ])
         .pipe(concat('script.js'))
         .pipe(gulp.dest('lib'));
 });

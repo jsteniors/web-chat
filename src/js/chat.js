@@ -1,4 +1,4 @@
-var chat = "<div class=\"chat-container\" style=\"overflow-y: auto\" ng-controller=\"chatCtrl\">\n" +
+var chat = "<div class=\"chat-container\" style=\"overflow-y: auto\" >\n" +
     "        <header class=\"chat-header\">\n" +
     "            <div class=\"container-fluid chat-head-container\">\n" +
     "                <div class=\"row\">\n" +

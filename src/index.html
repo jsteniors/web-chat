@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="chatApp">
 <head>
     <meta charset="UTF-8">
     <title>Teste chat</title>
     <script type="text/javascript" src="../lib/script.js"></script>
+    <script type="text/javascript">
+        angular.module('chatApp').config(function (botAPIProvider) {
+            botAPIProvider.setBaseUrl('https://impressora-web.herokuapp.com/robot');
+            botAPIProvider.setMethod('GET');
+        });
+    </script>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
     <link rel="stylesheet" href="../lib/style.css" />
 </head>
-    <body ng-app="chatApp">
-        <chat>  </chat>
+    <body >
+        <chat></chat>
     </body>
 </html>
