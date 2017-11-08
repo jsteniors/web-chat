@@ -6,27 +6,107 @@
         <script src="../node_modules/jquery/dist/jquery.js"></script>
         <script src="../lib/script.js"></script>
         <script>
+
             $(document).ready(function () {
-               console.log('rea');
-                $.ajax({
-                    url: "http://sac-martinsb2b.ascbrazil.com.br/Chat/login/resp-login",
-                    type: 'POST',
-                    crossDomain: true,
-//                    Origin: 'http://sac-martinsb2b.ascbrazil.com.br',
-                    'Accept' : 'application/json, text/javascript, */*; q=0.01',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-                    contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-                    data: 'message=aasdsadasd',
-                    success: function(data) {
-                        console.log('ajax', data);
-                    }
-                });
+               $('.teste').find('a:not(.link)').css('color', 'red');
+                $('.teste').find('a:nth-of-type(2):not(.link)').css('color', 'green');
             });
         </script>
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+    <div class="teste">
+        <a class="link">teste1</a>
+        <a class="link">teste2</a>
+        <a>teste3</a>
+    </div>
 
+    <div class="chat-containerstyle="overflow-y: auto">
+           <header class="chat-header">
+                   <div class="container-fluid chat-head-container">
+                       <div class="row">
+                               <div class="col-md-4 chat-header-clo1"></div>
+                           <div class="col-md-8 chat-header-clo2">
+                               <div class="chat-txt-desc">
+                                       <h3>Olá, eu sou o Mart. <br>
+                                           Seu consultor virtual.</h3>
+                                       <h4>Estou aqui para lhe auxiliar à <br>
+                                               realizar as compras no site.</h4>
+                                   </div>
+                           </div>
+                       </div>
+                   </div>
+               </header>
+           <div class="chat-content">
+                   <div class="bg-style"></div>
+                   <div class="chat-messages>
+                           <div class="chat-message-box {{message.continued?'msg-continued':''}}ng-repeat="message in messages">
+                               <div class="message-chat-container {{message.whos?'chat-message-right':'chat-message-left'}}ng-if="message.type=='message'">
+                                   <div class="message-content">
+                                           <span class="msg {{message.whos?'msg-icon-right':'msg-icon-left'}}"></span>
+                                           <span class="message-text">
+                                   {{message.content}}
+                               </span>
+                                       </div>
+                                   <span class="chat-message-time">{{(message.since)?(message.since<1)?'Menos de um minuto':message.since<2?'1 minuto atrás':message.since+' minutos atrás':'Menos de um minuto'}}</span>
+                               </div>
+                           <div class="message-chat-container" {{message.whos?'chat-message-right':'chat-message-left'}} msg-type-linkedng-if="message.type=='linked'">
+                               <div class="message-content">
+                                       <a class="btn btn-primaryhref="{{message.link}}">{{message.buttonText}}</a>
+                                   </div>
+                                    <span class="chat-message-time">{{(message.since)?(message.since<1)?'Menos de um minuto':message.since<2?'1 minuto atrás':message.since+' minutos atrás':'Menos de um minuto'}}</span>
+                           </div>
+                       <div class="message-chat-container {{message.whos?'chat-message-right':'chat-message-left'}}" ng-if="message.type=='form'">
+                           <div class="message-content">
+                                   <span class="msg {{message.whos?'msg-icon-right':'msg-icon-left'}}"></span>
+                                   <div class="msg-form">
+                                           <input class="form-control" type="text" placeholder="DIGITE SEU EMAIL">
+                                           <select class="form-control">
+                                                   <option>SELECIONE O CODIGO DE CNPJ</option>
+                                                   <option>Teste</option>
+                                                   <option>Outro teste</option>
+                                                   <option>Teste form</option>
+                                               </select>
+                                           <button class="btn btn-primary btn-block">
+                                               ENTRAR<i class="fa fa-angle-right" aria-hidden="true" style="color: #F07830"></i>
+                                           </button>
+                                       </div>
+                               </div>
+                           <div>
+                                   <span class="chat-message-time">{{(message.since)?(message.since<1)?'Menos de um minuto':message.since<2?'1 minuto atrás':message.since+' minutos atrás':'Menos de um minuto'}}</span>
+                               </div>
+                       </div>
+    "
+                   </div>
+               </div>
+           </div>
+           <div class="msg-errors">
+                   <div class="msg-error">
+                               <span class="msg-error-desc">
+                           Houve um problema de conexao;
+                       </span>
+                       </div>
+               </div>
+           <footer class="chat-footer">
+                   <div class="content-fluid">
+                           <div class="row">
+                                   <div class="col-lg-2 chat-menu-icon">
+                                       <i class="fa fa-barsaria-hidden="true"></i>
+                                   </div>
+                               <div class="col-lg-10 chat-input-message">
+                                   <div class="input-line" style="position: relative;width: 100%;">
+                                       <textarea rows="1id="msg-txtclass="form-control" placeholder="Digite aqui uma mensagem..." ng-model="messageText" ng-keypress="($event.keyCode==13)?enterKey($event):0" onresize="false">
+            
+                                       </textarea>
+                                       <span ng-click="sendMessage(messageText)">
+                                   <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                               </span>
+                                   </div>
+                           </div>
+                       </div>
+                   </div>
+               </footer>
+        </div>
+    
     </body>
 </html>

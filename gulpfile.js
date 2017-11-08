@@ -32,6 +32,7 @@ gulp.task('js', function () {
     return gulp.src([
                 'node_modules/angular/angular.min.js',
                 'node_modules/jquery/dist/jquery.min.js',
+                'node_modules/socket.io-client/dist/socket.io.js',
                 'src/js/**/*.js'
             ])
         .pipe(concat('script.js'))

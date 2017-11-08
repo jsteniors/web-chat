@@ -9,6 +9,7 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
         if(message.content != ''){
             message.continued = continued;
             $scope.messages.push(message);
+
             if(message.whos==1)
                 $scope.messageText = new String();
         }
@@ -17,6 +18,14 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
     $scope.sendMessage = function (message) {
         sendMessageDefault(message, false);
     };
+
+    $scope.buttonSend = function(messageText){
+        if(messageText.trim()!='') {
+            var esta = new Message('message', messageText, 1, new Date());
+            $scope.sendMessageApply(esta, false);
+            scrollEnd();
+        }
+    }
 
     //verificar se a mensagem anterior é a mesma de quem esta mandando atualmente
     $scope.sendContinuetedMessage = function (message) {
@@ -35,6 +44,7 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
             $scope.messageText.concat('\n');
         }else {
             if($scope.messageText.trim()!='') {
+                event.preventDefault();
                 var esta = new Message('message', $scope.messageText, 1, new Date());
                 $scope.sendContinuetedMessage(esta);
                 scrollEnd();
@@ -58,6 +68,16 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
             }
         }
     };
+    if($scope.messages) {
+        $scope.messages = $scope.messages.map(function (m) {
+            if (m.time) {
+                var timills = new Date().getTime() - m.time.getTime();
+                m.since = parseInt(timills / 1000 / 60);
+            }
+            return m;
+        });
+    }
+    
     //colocar o tempo que as mensagens foram enviadas
     $interval(function () {
         if($scope.messages) {
@@ -88,6 +108,7 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
             errorAlert.messageError("Houve um problema de conexao!");
         });
     };
+
     doInit();
     $scope.verItens = function () {
         var itens = JSON.parse(sessionStorage.getItem('pages'));

@@ -1,10 +1,10 @@
 $margin: 0;
 $flip: 30deg;
-$chatWidth: 390px;
+$chatWidth: 400px;
 $chatHeaderHeight: 120px;
 $chatContentHeight: 320px;
 $chatMenuIcon: false;
-$srcUrl: '../demo/img';
+$srcUrl: '../img';
 
 @import "mixin/gradiente.scss";
 @import "mixin/transform.scss ";
@@ -16,8 +16,26 @@ $srcUrl: '../demo/img';
   position: absolute;
   bottom: 10px;
   right: 20px;
+  display: inline-flex;
 }
 
+.outer-chat{
+  margin-right: 15px;
+  .chat-closer-icon {
+    i{
+      font-size: 22px;
+      font-weight: 300;
+    }
+    cursor: pointer;
+  }
+
+
+}
+
+.inner-chat{
+  width: 90%;
+  float: right;
+}
 //header do chat
 .chat-header{
   @include gradienteDefault();
@@ -43,28 +61,40 @@ $srcUrl: '../demo/img';
   background-size: 550px;
   background-position: -415px 10px;
   width: 120px;
+  min-height: 120px;
   margin: auto;
   background-repeat: no-repeat;
   @extend .chat-head-container;
  }
 
 .chat-header-clo2{
-  @extend .chat-head-container;
+  //@extend .chat-head-container;
+  padding: 0;
+  $marginDesc: 15px;
+  padding-left: 10px;
+  .chat-txt-desc {
+    color: #5E5E5E;
+    h3 {
+      font-size: 22px;
+      margin-top: $marginDesc;
+      margin-bottom: 0;
+      &:not(.toogle-title) {
+        text-align: left;
+      }
+    }
+    h4 {
+      font-size: 16px;
+      margin-top: 10px;
+      //margin-bottom: $marginDesc;
+      &:not(.toogle-title) {
+        text-align: left;
+      }
+    }
+  }
 }
 
-$marginDesc: 10px;
 
-.chat-txt-desc h3{
-  margin-top: $marginDesc;
-  margin-bottom: 0;
-  text-align: center;
-}
 
-.chat-txt-desc h4{
-  margin-top: 10px;
-  margin-bottom: $marginDesc;
-  text-align: center;
-}
 
 
 //background flip
@@ -102,7 +132,7 @@ $marginDesc: 10px;
   cursor: pointer;
 }
 
-$fontInput: 1.5em;
+$fontInput: 1.3em;
 .chat-input-message{
   @if $chatMenuIcon==false{
   width: 100%!important;
@@ -124,4 +154,8 @@ $fontInput: 1.5em;
       }
     }
   }
+}
+
+.toogle-title{
+  text-align: center;
 }
