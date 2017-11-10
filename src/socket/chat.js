@@ -1,5 +1,5 @@
 var chat = "<div class=\"chat-container\" >\n" +
-    "<div class='outer-chat'><a onclick='toggleChat()' class='chat-closer-icon'><i class=\"fa fa-times-circle-o\" aria-hidden=\"true\"></i></a></div>"+
+    "<div class='outer-chat'><a class='chat-closer-icon'><i class=\"fa fa-times-circle-o\" aria-hidden=\"true\"></i></a></div>"+
     "        <div class='inner-chat'>  "+
         "        <header class=\"chat-header\">\n" +
         "            <div class=\"container-fluid chat-head-container\">\n" +

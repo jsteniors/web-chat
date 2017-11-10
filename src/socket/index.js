@@ -1,0 +1,3 @@
+jchat = jQuery.noConflict();
+
+

@@ -2,7 +2,7 @@ angular.module('chatApp', []);
 
 angular.module('chatApp').component('chat', {
     template: chat,
-    controller: 'chatHttpCtrl'
+    controller: 'chatSocketCtrl'
 });
 
 angular.module('chatApp').config(function ($httpProvider) {

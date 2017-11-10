@@ -13,9 +13,10 @@ $srcUrl: '../img';
 //container do chat
 .chat-container{
   width: $chatWidth;
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 0;
   right: 20px;
+  z-index: 3!important;
   display: inline-flex;
 }
 
@@ -28,8 +29,6 @@ $srcUrl: '../img';
     }
     cursor: pointer;
   }
-
-
 }
 
 .inner-chat{
@@ -157,5 +156,6 @@ $fontInput: 1.3em;
 }
 
 .toogle-title{
+  margin: 15px!important;
   text-align: center;
 }

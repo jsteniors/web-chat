@@ -2,10 +2,9 @@ angular.module('chatApp').directive('htmlContent', function ($location) {
     return{
         transclude: true,
         scope: {
-            message: '@htmlContent'
+            message: '=htmlContent'
         },
         link: function (scope, el , attrs) {
-            scope.message = JSON.parse(scope.message);
             if(scope.message.type=='render'){
                 $location.path(message.location);
             }else {

@@ -1,4 +1,4 @@
-angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, errorAlert, botAPI) {
+angular.module('chatApp').controller('chatHttpCtrl', function ($scope, $interval, errorAlert, botAPI) {
 
     $scope.messages = [];
 
@@ -68,18 +68,8 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
             }
         }
     };
-    if($scope.messages) {
-        $scope.messages = $scope.messages.map(function (m) {
-            if (m.time) {
-                var timills = new Date().getTime() - m.time.getTime();
-                m.since = parseInt(timills / 1000 / 60);
-            }
-            return m;
-        });
-    }
-    
-    //colocar o tempo que as mensagens foram enviadas
-    $interval(function () {
+
+    $scope.verifyTime = function () {
         if($scope.messages) {
             $scope.messages = $scope.messages.map(function (m) {
                 if (m.time) {
@@ -89,6 +79,11 @@ angular.module('chatApp').controller('chatCtrl', function ($scope, $interval, er
                 return m;
             });
         }
+    };
+
+    //colocar o tempo que as mensagens foram enviadas
+    $interval(function () {
+        $scope.verifyTime();
     }, 60*1000);
 
     //iniciar a conexao com o robot

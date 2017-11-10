@@ -21,7 +21,7 @@
         <a>teste3</a>
     </div>
 
-    <div class="chat-containerstyle="overflow-y: auto">
+    <div class="chat-container" style="overflow-y: auto">
            <header class="chat-header">
                    <div class="container-fluid chat-head-container">
                        <div class="row">
@@ -39,9 +39,9 @@
                </header>
            <div class="chat-content">
                    <div class="bg-style"></div>
-                   <div class="chat-messages>
-                           <div class="chat-message-box {{message.continued?'msg-continued':''}}ng-repeat="message in messages">
-                               <div class="message-chat-container {{message.whos?'chat-message-right':'chat-message-left'}}ng-if="message.type=='message'">
+                   <div class="chat-messages">
+                           <div class="chat-message-box {{message.continued?'msg-continued':''}}" ng-repeat="message in messages">
+                               <div class="message-chat-container {{message.whos?'chat-message-right':'chat-message-left'}}" ng-if="message.type=='message'">
                                    <div class="message-content">
                                            <span class="msg {{message.whos?'msg-icon-right':'msg-icon-left'}}"></span>
                                            <span class="message-text">
@@ -50,9 +50,9 @@
                                        </div>
                                    <span class="chat-message-time">{{(message.since)?(message.since<1)?'Menos de um minuto':message.since<2?'1 minuto atrás':message.since+' minutos atrás':'Menos de um minuto'}}</span>
                                </div>
-                           <div class="message-chat-container" {{message.whos?'chat-message-right':'chat-message-left'}} msg-type-linkedng-if="message.type=='linked'">
+                           <div class="message-chat-container {{message.whos?'chat-message-right':'chat-message-left'}} msg-type-linked" ng-if="message.type=='linked'">
                                <div class="message-content">
-                                       <a class="btn btn-primaryhref="{{message.link}}">{{message.buttonText}}</a>
+                                       <a class="btn btn-primary" href="{{message.link}}">{{message.buttonText}}</a>
                                    </div>
                                     <span class="chat-message-time">{{(message.since)?(message.since<1)?'Menos de um minuto':message.since<2?'1 minuto atrás':message.since+' minutos atrás':'Menos de um minuto'}}</span>
                            </div>

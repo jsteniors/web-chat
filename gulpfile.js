@@ -27,13 +27,24 @@ gulp.task('html', function () {
     return gulp.src(['src/**/*.html'])
         .pipe(gulp.dest('demo'));
 });
+//<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.js"></script>
+gulp.task('teste', function () {
+    return es.merge([
+            gulp.src([
+                'node_modules/jquery/dist/jquery.min.js',
+                'node_modules/angular/angular.min.js'
+            ]),
+            gulp.src('src/js/**/*.js')
+        ]).pipe(concat('scripts.js'))
+        .pipe(gulp.dest('dist'));
+});
 
 gulp.task('js', function () {
     return gulp.src([
-                'node_modules/angular/angular.min.js',
-                'node_modules/jquery/dist/jquery.min.js',
+                //'node_modules/jquery/dist/jquery.min.js',
+                //'node_modules/angular/angular.min.js',
                 'node_modules/socket.io-client/dist/socket.io.js',
-                'src/js/**/*.js'
+                'src/socket/**/*.js'
             ])
         .pipe(concat('script.js'))
         .pipe(gulp.dest('lib'));
@@ -50,6 +61,7 @@ gulp.task('img', function () {
 
 gulp.watch(['src/**/*.html'], ['html']);
 gulp.watch('src/sass/**/*.scss', ['sass']);
-gulp.watch('src/js/**/*.js', ['js']);
+gulp.watch('src/socket/**/*.js', ['js']);
+gulp.watch(['src/js/**/*.js'], ['teste']);
 
 gulp.task('default', ['js', 'html', 'sass', 'img']);
