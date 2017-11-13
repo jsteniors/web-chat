@@ -1,38 +1,38 @@
-function login(){
-    if (ValidaCamposLogin()) {
-        jchat(".loader").show();
-        window.location.href = 'https://b.martins.com.br/Login.aspx?email=' + jchat("#desEmail").val() + '&codCli=' + jchat.trim(jchat("#numCodigoCnpj").val()) + '&returnpage=' + encodeURIComponent(window.location.href);
+function loginBot(){
+    if (ValidaCamposLoginBot()) {
+        jchat("#loginForm .loader").show();
+        window.location.href = 'https://b.martins.com.br/Login.aspx?email=' + jchat("#desEmailBot").val() + '&codCli=' + jchat.trim(jchat("#numCodigoCnpjBot").val()) + '&returnpage=' + encodeURIComponent(window.location.href);
     }
 }
 
-function ValidaCamposLogin() {
-    jchat(".messages").hide();
-    if (jchat("#desEmail").val() != "") {
-        if (jchat("#numCodigoCnpj").val() != 0) {
+function ValidaCamposLoginBot() {
+    jchat("#loginForm .messages").hide();
+    if (jchat("#desEmailBot").val() != "") {
+        if (jchat("#numCodigoCnpjBot").val() != 0) {
             return true;
         } else {
-            jchat(".messages").html("Selecione o c&oacute;digo e CNPJ.").show();
-            jchat("#numCodigoCnpj").focus();
+            jchat("#loginForm .messages").html("Selecione o c&oacute;digo e CNPJ.").show();
+            jchat("#numCodigoCnpjBot").focus();
             return false;
         }
     } else {
-        jchat(".messages").html("Preencha seu e-mail.").show();
-        jchat("#desEmail").focus();
+        jchat("#loginForm .messages").html("Preencha seu e-mail.").show();
+        jchat("#desEmailBot").focus();
         return false;
     }
 }
 
-jchat("#desEmail").blur(function() {
-    logarclienteTopo(this);
+jchat("#desEmailBot").blur(function() {
+    logarclienteTopoBot(this);
 }).keyup(function(e) {
     if (e.keyCode == 13) {
         e.preventDefault();
-        $('#numCodigoCnpj').focus();
+        $('#numCodigoCnpjBot').focus();
     }
 });
 
 
-function getCodigoClienteTopo(email) {
+function getCodigoClienteTopoBot(email) {
     var messageData = {"verifyString": "superM", "action": "onBlurEmail", "idemail": email};
     jchat.ajaxSetup({ cache: false });
     jchat.ajax({
@@ -42,35 +42,35 @@ function getCodigoClienteTopo(email) {
         dataType: 'text',
         cache: "false",
         beforeSend: function() {
-            jchat("#desEmail, #numCodigoCnpj").attr("disabled", "disabled");
-            jchat("#numCodigoCnpj").html('<option value="">Aguarde...</option>');
+            jchat("#desEmailBot, #numCodigoCnpjBot").attr("disabled", "disabled");
+            jchat("#numCodigoCnpjBot").html('<option value="">Aguarde...</option>');
         },
         success: function(txt) {
-            jchat("#desEmail, #numCodigoCnpj").removeAttr("disabled");
+            jchat("#desEmailBot, #numCodigoCnpjBot").removeAttr("disabled");
             if (txt == "") {
                 //Mensagem utiliza caracteres ISO 8859-1 (duvidas procurar no google)
-                jchat(".not-logged .messages").html("N&atilde;o &eacute; poss&iacute;vel realizar o login.").show();
-                jchat("#numCodigoCnpj").html('<option value="0">Selecione o C&oacute;digo e CNPJ do Cliente</option>');
+                jchat("#loginForm .not-logged .messages").html("N&atilde;o &eacute; poss&iacute;vel realizar o login.").show();
+                jchat("#numCodigoCnpjBot").html('<option value="0">Selecione o C&oacute;digo e CNPJ do Cliente</option>');
             } else {
-                jchat("#numCodigoCnpj").html(txt);
+                jchat("#numCodigoCnpjBot").html(txt);
             }
         },
         error: function(error) {
             console.log('erro');
-            jchat("#desEmail, #numCodigoCnpj").removeAttr("disabled");
+            jchat("#desEmailBot, #numCodigoCnpjBot").removeAttr("disabled");
         }
     });
 }
 
 
-function logarclienteTopo(obj) {
+function logarclienteTopoBot(obj) {
     console.log('aq');
-    jchat(".not-logged .messages").hide();
+    jchat("#loginForm .not-logged .messages").hide();
     if (jchat(obj).val() != "") {
         var regmail = /^[\w!#$%&amp;'*+\/=?^`{|}~-]+(\.[\w!#$%&amp;'*+\/=?^`{|}~-]+)*@(([\w-]+\.)+[A-Za-z]{2,6}|\[\d{1,3}(\.\d{1,3}){3}\])$/;
 
-        if (regmail.test(jchat("#desEmail").val())) {
-            getCodigoClienteTopo(jchat(obj).val());
+        if (regmail.test(jchat("#desEmailBot").val())) {
+            getCodigoClienteTopoBot(jchat(obj).val());
         } else {
             jchat("#loginForm .not-logged .messages").html("E-mail inv&aacute;lido.").show();
         }

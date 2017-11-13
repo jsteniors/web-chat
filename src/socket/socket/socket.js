@@ -1,38 +1,42 @@
-var SocketManager = function($scope, id){
-    var _socket = io('http://botmartins-ricardopimentel.c9users.io/');
+var SocketManager = function($scope){
+    var _socket = io('https://botmartins-ricardopimentel.c9users.io/');
 
-    var _id = id;
+    var _id = getCookie('chatB2B');
 
     var _canalDefault = 'msg';
-    console.log('chamou');
+
     this.openConnection = function () {
         console.log('conectando');
         _socket.on('connect', function () {
             console.log('conectou', _id);
-            _socket.emit('load', _id);
+            var islogado = jchat('#logado').attr('value');
+            _socket.emit('load', {chatid:_id, logado:islogado});
         });
     }
 
     this.receiveData = function(){
         _socket.on('receive', function (data) {
             if(data.msg.trim().length) {
-                var enviar = {type:'message', message: decodes(data),content: decodes(data), user: data.user, time: new Date(), whos: data.user == 'Super M' ? 0 : 1};
+                if (!_id)
+                    document.cookie = 'chatB2B='+data.chatid;
+                var enviar = {type:'message', message: decodeURI(data.msg),content: decodeURI(data.msg), user: data.user, time: new Date(), whos: data.user == 'Super M' ? 0 : 1};
                 $scope.sendMessageApply(enviar, true);
                 $scope.scrollEnd();
             }
         });
     }
+    //<input type="hidden" id="logado" value="n">
     this.startChat = function(){
         _socket.on('startChat', function(data) {
             console.log('start', data);
-            if (data.boolean && data.id == _id) {
+            if (data.boolean && data.chatid == _id) {
                 var messages = data.messages;
                 messages.forEach(function (item) {
                     item = {
                         type: "message",
                         whos: item.user == 'Super M' ? 0 : 1,
                         time: new Date(item.time),
-                        content: item.msg,
+                        content: decodeURI(item.msg),
                         user: item.user
                     };
                     $scope.sendMessageApply(item, true);
@@ -44,13 +48,13 @@ var SocketManager = function($scope, id){
     }
 
     this.emit = function(canal, message){
-        message.msg = message.msg.toLowerCase();
+        message.msg = encodeURI(message.msg.toLowerCase());
         message.user = _id;
         _socket.emit(canal, message)
     }
 
     this.emitDefault = function (message) {
-        message.msg = message.msg.toLowerCase();
+        message.msg = encodeURI(message.msg.toLowerCase());
         message.user = _id;
         _socket.emit(_canalDefault, message);
     }

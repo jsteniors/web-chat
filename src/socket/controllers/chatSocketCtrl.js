@@ -2,22 +2,6 @@ angular.module('chatApp').controller('chatSocketCtrl', function ($scope, $interv
 
     $scope.messages = [];
     $scope.message = '';
-    var storage = new Storage();
-    var b2b = storage.getJsonItem('chatB2B');
-    //var id = getCookie("chatB2B");
-    console.log('antes requisição', b2b, document.cookie);
-    if(!b2b) {
-        botAPI.sendMessage().then(function (response) {
-            if(response.data){
-                //document.cookie = 'chatB2B='+response.data.id;
-                var id = response.data.id;
-                storage.setJsonItem('chatB2B', {id: id});
-
-                $scope.socket = new SocketManager($scope, id);
-                console.log('requisitado', id, storage.getJsonItem('chatB2B'), response);
-            }
-        });
-    } else $scope.socket = new SocketManager($scope, b2b.id);
 
     $scope.scrollEnd = function () {
         scrollEnd();
@@ -25,7 +9,7 @@ angular.module('chatApp').controller('chatSocketCtrl', function ($scope, $interv
 
     var content = jchat('.chat-container');
 
-
+    $scope.socket = new SocketManager($scope);
 
     var sendMessage = function (message, continued, apply) {
         if(message.content != ''){
