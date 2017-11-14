@@ -27,15 +27,17 @@ gulp.task('html', function () {
     return gulp.src(['src/**/*.html'])
         .pipe(gulp.dest('demo'));
 });
+
 //<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.js"></script>
 gulp.task('teste', function () {
     return es.merge([
             gulp.src([
                 'node_modules/jquery/dist/jquery.min.js',
-                'node_modules/angular/angular.min.js'
+                'node_modules/angular/angular.min.js',
+                'node_modules/socket.io-client/dist/socket.io.js'
             ]),
-            gulp.src('src/js/**/*.js')
-        ]).pipe(concat('scripts.js'))
+            gulp.src('src/socket_teste/**/*.js')
+        ]).pipe(concat('teste.js'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -62,6 +64,6 @@ gulp.task('img', function () {
 gulp.watch(['src/**/*.html'], ['html']);
 gulp.watch('src/sass/**/*.scss', ['sass']);
 gulp.watch('src/socket/**/*.js', ['js']);
-gulp.watch(['src/js/**/*.js'], ['teste']);
+gulp.watch(['src/socket_teste/**/*.js'], ['teste']);
 
 gulp.task('default', ['js', 'html', 'sass', 'img']);
